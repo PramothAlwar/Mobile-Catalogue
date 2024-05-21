@@ -59,13 +59,17 @@ const Description = () => {
                 element.style.display = 'block';
             }
         }
+        const acc = document.getElementById('acccreate')
+        if(acc){
+            acc.style.display = 'block';
+        }
     }
 
     console.log(current)
 
 
 return (
-    <div className='flex flex-col items-center  w-fit lg:w-screen'>
+    <div className='flex flex-col   w-fit lg:w-screen'>
     <div className='m-10 border-2 border-red-200 p-10 w-auto h-auto justify-evenly md:flex md:flex-row md:justify-evenly md:m-10 flow-root'>
         <img className='md:w-4/12 h-3/6 w-50%' src={currentImage}></img>
         <div>
@@ -77,12 +81,12 @@ return (
                 <br></br>
                 <h3>Price: {currentPrice}</h3>
             </div>
-            <div className='flex flex-col justify-center md:flex-none text-center'>
-                <button className='bg-blue-400 text-white p-2 rounded-xl mt-4 m-6 hover:bg-blue-700' onClick={()=>navigate('/')}>Back</button>
-                <button className='bg-blue-400 text-white p-2 rounded-xl mt-4  hover:bg-blue-700' onClick={()=>setCart("✅ Phone added to cart")}>Add to cart</button>
+            <div className='flex flex-col  md:flex-none '>
+                <button className='bg-blue-400 text-white p-2 rounded-xl mt-4 hover:bg-blue-700 w-fit' onClick={()=>navigate('/')}>Back</button>
+                <button className='bg-blue-400 text-white p-2 rounded-xl mt-4  hover:bg-blue-700 w-fit' onClick={()=>setCart("✅ Phone added to cart")}>Add to cart</button>
                 <br/>
-                <h2 className={`self-center p-2 ${cart ? 'bg-green-400' : ''} text-white w-fit rounded-xl`}>{cart}</h2>
-                <h3>Do You have a phone to trade in</h3>
+                <h2 className={` p-2 ${cart ? 'bg-green-400' : ''} text-white w-fit rounded-xl`}>{cart}</h2>
+                <h3>Do You have a phone to trade in ?</h3>
                 <Link to='/tradein' className=' text-blue-700'>How the trade-in process works</Link>
                 <div>
                     <button className='bg-slate-400 text-white p-4 w-16 rounded-xl mt-4 m-6 hover:bg-slate-700' onClick={()=>yes()}>Yes</button>
@@ -90,7 +94,7 @@ return (
                 </div>
                 <div id='oldmobiledetails' className='hidden '>
                     <h3>Enter mobile details</h3>
-                    <select value={brand} onChange={handleBrand} className='border-4 text-center p-3 hover:border-blue-900 rounded-full'>
+                    <select value={brand} onChange={handleBrand} className='border-4  p-3 hover:border-blue-900 rounded-full'>
                         <option value=''>Select Brand</option>
                         <option value='Samsung'>Samsung</option>
                         <option value='Apple'>Apple</option>
@@ -99,8 +103,8 @@ return (
                     </select>
                     <br></br>
                     <br></br>
-                    <div className='flex justify-center flex-col'>
-                    <select id="model" value={model} className='border-4 p-3 text-center hidden  hover:border-blue-900 rounded-full' onChange={handleCondition}>
+                    <div className=''>
+                    <select id="model" value={model} className='border-4 p-3  hidden  hover:border-blue-900 rounded-full' onChange={handleCondition}>
                         <option value=''>Select Model</option>
                         {
                             current.map((phone:any, i:number) => {
@@ -113,17 +117,19 @@ return (
                         }
                     </select>
                     <br></br>
-                    <select id="condition" className='border-4 p-3 text-center hidden  hover:border-blue-900 rounded-full' value={condition} onChange={handlePrice}>
+                    <select id="condition" className='border-4 p-3  hidden  hover:border-blue-900 rounded-full' value={condition} onChange={handlePrice}>
                         <option>Select Condition</option>
                         <option value='Mint'>Mint</option>
                         <option value='Good'>Good</option>
                     </select>
                     </div>
                     <br></br>
-                    <div id='price' className=' text-emerald-600 bg-lime-200 rounded-2xl  hidden'>
+                    <div id='price' className=' text-emerald-600 bg-lime-200 rounded-2xl  hidden w-fit p-2'>
                         <h3>{condition === 'Mint'? <h2>New Price : {currentPrice-100}</h2> : condition==='Good'? <h2>New Price : {currentPrice-50}</h2>:<h2>Price : {currentPrice}</h2> }</h3>
                     </div>
                 </div>
+                <br></br>
+                <Link to="/IDCreationPage" id='acccreate' className='hidden border-2 border-slate-800 rounded-full p-2 bg-green-300 hover:bg-green-800 hover:text-neutral-50 w-fit p-2'>Proceed on creating an account</Link>
             </div>
         </div>
     </div>
