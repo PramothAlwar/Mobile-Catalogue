@@ -12,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 <QueryClientProvider client={queryClient}>
-  <BrowserRouter>
+  <BrowserRouter basename='Mobile-Catalogue'>
     <App />
   </BrowserRouter>
 </QueryClientProvider>
