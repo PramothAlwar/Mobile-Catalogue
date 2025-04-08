@@ -65,8 +65,6 @@ const Description = () => {
         }
     }
 
-    console.log(current)
-
 
 return (
     <div className='flex flex-col   w-fit lg:w-screen'>
